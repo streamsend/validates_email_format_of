@@ -91,6 +91,8 @@ class ValidatesEmailFormatOfTest < TEST_CASE
      'local@sub.#domain.com',
   # one at a time
      "foo@example.com\nexample@gmail.com",
+     "foo@example.com\n",
+     "foo@example\n.com",
      'invalid@example.',
      "\"foo\\\\\"\"@bar.com",
      "foo@mail.com\r\nfoo@mail.com",
