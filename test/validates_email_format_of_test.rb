@@ -202,9 +202,11 @@ class ValidatesEmailFormatOfTest < TEST_CASE
     end
   end
 
-  def test_frozen_string
-    assert_valid("  #{@valid_email}  ".freeze)
-    assert_invalid("  #{@invalid_email}  ".freeze)
+  def test_validation_does_not_modify_email_address
+    email_address = "  test@example.com  "
+    original_email_address = email_address.dup
+    ValidatesEmailFormatOf.validate_email_format(email_address)
+    assert_equal original_email_address, email_address
   end
 
   protected
